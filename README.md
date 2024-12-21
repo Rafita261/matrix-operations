@@ -2,58 +2,67 @@
 
 ## Description
 
-`Matrix_operations` est un module Python conçu pour manipuler et effectuer diverses opérations sur des matrices. Il inclut des fonctionnalités telles que l'addition, la soustraction, la multiplication, la transposition, le calcul du déterminant, et plus encore.
+`Matrix_operations` is a Python module designed to handle and perform various matrix operations. It includes functionalities such as addition, subtraction, multiplication, transposition, determinant calculation, and more.
 
-## Fonctionnalités
+## Features
 
-- **Création de matrices** : Initialisez une matrice avec une liste de listes.
-```python 
+- **Matrix Creation**: Initialize a matrix with a list of lists.
+```python
 from Matrix import Matrix
-A = Matrix([[1,2,1],[0,1,1],[1,0,1]])
+A = Matrix([[1, 2, 1], [0, 1, 1], [1, 0, 1]])
 ```
-- **Affichage** : Affichez les éléments formatés d'une matrice.
+
+- **Display**: Print formatted elements of a matrix.
 ```python
 print(A)
 ```
-- **Matrice identité** : Génère une matrice identité pour une matrice carrée.
+
+- **Identity Matrix**: Generate an identity matrix for a square matrix.
 ```python
 I = A.id()
-print(I) #Affiche la matrice identité 3×3 : taille de A
+print(I)  # Displays the 3×3 identity matrix, matching the size of A
 ```
-- **Addition et soustraction** : Opérations entre matrices de mêmes dimensions.
+
+- **Addition and Subtraction**: Perform operations on matrices of the same dimensions.
 ```python
-B = Matrix([2,1,0],[0,1,1],[1,0,0])
-print(A+B)
-print(A-B)
+B = Matrix([[2, 1, 0], [0, 1, 1], [1, 0, 0]])
+print(A + B)
+print(A - B)
 ```
-- **Multiplication** : Multiplication matricielle compatible.
+
+- **Multiplication**: Perform compatible matrix multiplication.
 ```python
-print(A*B) 
+print(A * B)
 ```
-- **Transposition** : Retourne la transposée d'une matrice.
+
+- **Transpose**: Returns the transpose of a matrix.
 ```python
 T = A.transpose()
 print(T)
 ```
-- **Puissance** : Calcul de puissances d'une matrice, y compris l'inverse.
+
+- **Power**: Calculate powers of a matrix, including the inverse.
 ```python
 n = 3
 M = A**3 
 print(M)
-Inv = A**-1 #inverse de A
+Inv = A**-1  # Inverse of A
 print(Inv)
 ```
-- **Déterminant** : Calcul du déterminant des matrices carrées.
+
+- **Determinant**: Calculate the determinant of square matrices.
 ```python
 d = A.det()
 print(d)
 ```
-- **Comatrice** : Calcul de la comatrice.
+
+- **Cofactor Matrix**: Compute the cofactor matrix.
 ```python
 C = A.com()
 print(C)
 ```
-- **Inverse** : Calcule l'inverse d'une matrice si possible.
+
+- **Inverse**: Calculate the inverse of a matrix if possible.
 ```python
 I1 = A.inv()
 print(I1)
@@ -63,35 +72,35 @@ print(I2)
 
 ## Installation
 
-Clonez le projet et installez-le localement avec `pip`:
+Clone the project and install it locally using `pip`:
 ```bash
 git clone https://github.com/Rafita261/matrix-operations.git
 cd matrix-operations
 pip install .
 ```
 
-Pour un mode développement :
+For development mode:
 ```bash
 pip install -e .
 ```
 
 ## Tests
 
-Pour exécuter les tests (si vous avez des tests unitaires dans tests/) :
+To run tests (if you have unit tests in the `tests/` directory):
 ```bash
 pytest tests/
 ```
+
 ## Contributions
 
-Les contributions sont les bienvenues. Veuillez soumettre une pull request ou signaler un problème sur GitHub.
+Contributions are welcome. Please submit a pull request or report an issue on GitHub.
 
-## Licence
+## License
 
-Ce projet est sous licence MIT.
-
+This project is licensed under the MIT License.
 
 ---
 
-## Auteur
+## Author
 
 Fitahiana Christalin RATSIMBAZAFY (Rafita261/Chriskely)
