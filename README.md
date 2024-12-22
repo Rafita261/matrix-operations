@@ -44,7 +44,7 @@ print(T)
 - **Power**: Calculate powers of a matrix, including the inverse.
 ```python
 n = 3
-M = A**3 
+M = A**n
 print(M)
 Inv = A**-1  # Inverse of A
 print(Inv)
@@ -86,7 +86,7 @@ pip install -e .
 
 ## Tests
 
-To run tests (if you have unit tests in the `tests/` directory):
+To run tests (in the `tests/` directory):
 ```bash
 pytest tests/
 ```
