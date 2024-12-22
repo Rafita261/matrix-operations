@@ -33,6 +33,7 @@ print(A - B)
 - **Multiplication**: Perform compatible matrix multiplication.
 ```python
 print(A * B)
+print(3 * A) 
 ```
 
 - **Transpose**: Returns the transpose of a matrix.
