@@ -11,7 +11,7 @@ class Matrix :
         n,m = self.size
         if n!=m :
             print("Matrice non carré n'a pas de matrice identité")
-            return self
+            return None
         else :
             t = []
             for i in range(n) :
@@ -24,11 +24,20 @@ class Matrix :
                 t.append(h)
             return Matrix(t)
     
-    # Représentation d'une matrice avec print()
+    # Casting vers str : faites pour la fonction print()
     def __str__(self) :
         string = []
         x,y = self.size
-        M_copy = [[str(round(self.M[j][i],2)) for i in range(y)] for j in range(x)]
+        M_copy=[]
+        for j in range(x) :
+            h=[]
+            for i in range(y) :
+                if self.M[j][i] == int(self.M[j][i]) :
+                    h.append(str(int(self.M[j][i])))
+                else :
+                    h.append(str(round(self.M[j][i],2)))
+            M_copy.append(h)
+            
         for elem in M_copy :
             string.append('\t'+'('+'\t'.join(elem)+')')
         return '\n'.join(string)+'\n'
@@ -51,7 +60,7 @@ class Matrix :
         k,p= self.size
         if n!=p :
             print('\t'+"Multiplication matricielle impossible")
-            return self
+            return None
         for i in range(k) :
             h = []
             for j in range(m) :
@@ -68,6 +77,9 @@ class Matrix :
             return self.inv()
         if n == 0 : return self.id()
         if n == 1 : return self
+        if n != int(n) : 
+          print("L'opération ** de Matrix ne peut faire que la puissance entière")
+          return None
         if n%2 == 0 :
             B = self**(n/2)
             return B*B
