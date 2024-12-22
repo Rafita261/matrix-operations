@@ -10,7 +10,7 @@ class TestMatrixOperations(unittest.TestCase):
         P = Matrix([[1, -1], [2, 2]])
         # Transformation T
         T = (P**-1) * A * P
-        expected_T = [[3.0, 0.0], [0.0, -1.0]]  # Exemple de résultat attendu
+        expected_T = [[3, 0], [0, -1]]  # Exemple de résultat attendu
         self.assertEqual(T.M, expected_T)
 
     def test_fibonacci(self):
