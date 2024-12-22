@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="matrix_operations",
+    name="py_matrix_operations",
     version="1.0.0",
     description="A Python module for matrix operations",
     long_description=open("README.md").read(),
