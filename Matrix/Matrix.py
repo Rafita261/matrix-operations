@@ -1,3 +1,4 @@
+import math
 class Matrix :
     def __init__(self) :
         self.M=[[]]
@@ -52,25 +53,39 @@ class Matrix :
                 h.append(self.M[y][x])
             s.append(h)
         return Matrix(s)
-    
-    # Surcharge de l'opération multiplication * pour le produit matriciel
+    def __float__(self) :
+        return math.inf
+    # Surcharge de l'opération multiplication * pour le produit matriciel / produit avec un nombre
     def __mul__(self,B) :
+        if float(B) == math.inf :
+            t=[]
+            n,m = B.size
+            k,p= self.size
+            if n!=p :
+                print('\t'+"Multiplication matricielle impossible")
+                return None
+            for i in range(k) :
+                h = []
+                for j in range(m) :
+                    s = 0
+                    for l in range(n) :
+                        s+=self.M[i][l]*B.M[l][j]
+                    h.append(s)
+                t.append(h)
+            return Matrix(t)
         t=[]
-        n,m = B.size
-        k,p= self.size
-        if n!=p :
-            print('\t'+"Multiplication matricielle impossible")
-            return None
-        for i in range(k) :
+        a = B
+        n,m = self.size
+        for i in range(n) :
             h = []
             for j in range(m) :
-                s = 0
-                for l in range(n) :
-                    s+=self.M[i][l]*B.M[l][j]
-                h.append(s)
+                h.append(a*self.M[i][j])
             t.append(h)
         return Matrix(t)
-       
+        
+    def __rmul__(self,B) :
+        return self * B
+
     # Surcharge de l'opération ** pour la puissance de matrice 
     def __pow__(self,n) :
         if n==-1 :
