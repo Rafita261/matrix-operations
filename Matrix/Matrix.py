@@ -11,8 +11,7 @@ class Matrix :
     def id(self) :
         n,m = self.size
         if n!=m :
-            print("Matrice non carré n'a pas de matrice identité")
-            return None
+            raise ValueError("The matrix is not square")
         else :
             t = []
             for i in range(n) :
@@ -62,8 +61,7 @@ class Matrix :
             n,m = B.size
             k,p= self.size
             if n!=p :
-                print('\t'+"Multiplication matricielle impossible")
-                return None
+                raise ValueError("Matrix multiplication is not possible due to incompatible dimensions")
             for i in range(k) :
                 h = []
                 for j in range(m) :
@@ -93,8 +91,7 @@ class Matrix :
         if n == 0 : return self.id()
         if n == 1 : return self
         if n != int(n) : 
-          print("L'opération ** de Matrix ne peut faire que la puissance entière")
-          return None
+          raise ValueError("Matrix exponentiation can only be performed with integer powers")
         if n%2 == 0 :
             B = self**(n/2)
             return B*B
@@ -106,8 +103,7 @@ class Matrix :
         n,m = self.size
         p,q = B.size
         if n!=p or m!=q :
-            print("Impossible d'additionner deux matrices de dimensions différentes")
-            return self
+            raise ValueError("Cannot add two matrices of different dimensions")
         t = self.M
         k = B.M
         s=[]
@@ -123,8 +119,7 @@ class Matrix :
         n,m = self.size
         p,q = B.size
         if n!=p or m!=q :
-            print("Impossible de soustraire deux matrices de dimensions différentes")
-            return self
+            raise ValueError("Cannot subtract two matrices of different dimensions")
         t = self.M
         k = B.M
         s=[]
@@ -155,8 +150,7 @@ class Matrix :
         s=0
         n,m = self.size
         if n!=m :
-            print("On ne peut pas calculer les déterminants que pour les matrices carrées!")
-            return None
+            raise ValueError("Determinants can only be calculated for square matrices!")
         t=self.M
         if n==2 :
             s+=t[0][0]*t[1][1]-(t[1][0]*t[0][1])
@@ -188,11 +182,9 @@ class Matrix :
             return Matrix([[e/d,-b/d],[-c/d,a/d]])
         t = self.com().transpose().M
         if n!=m :
-            print("Matrice non carrée n'a pas d'inverse")
-            return self
+            raise ValueError("Non-square matrices do not have an inverse")
         if d == 0 :
-            print("La matrice n'est pas inversible det = 0")
-            return self
+            raise ValueError("The matrix is not invertible because its determinant is 0")
         for i in range(n) :
             for j in range (m) :
                 t[i][j] /=d
